@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Para Beatriz 💗</title>
+<style>
+:root{--pink:#ff4f9a;--purple:#8b5cf6;--dark:#180b24;--text:#fff;--muted:#eadcf0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;color:var(--text);font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at 10% 10%,#ff4f9a55,transparent 30%),radial-gradient(circle at 90% 30%,#8b5cf655,transparent 30%),linear-gradient(145deg,#15091f,#35113f,#180a25);min-height:100vh}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:35px 35px;opacity:.12}
+nav{position:fixed;z-index:50;top:0;left:0;right:0;padding:12px;display:flex;justify-content:center;gap:6px;background:#16091ecc;backdrop-filter:blur(15px);border-bottom:1px solid #ffffff20}
+nav a,nav button{color:white;text-decoration:none;background:transparent;border:0;padding:10px 14px;border-radius:999px;cursor:pointer;font-size:14px}
+nav a:hover,nav button:hover{background:#ffffff18}
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:100px 20px 50px}.hero-inner{max-width:900px}
+.heart{font-size:65px;animation:pulse 1.5s infinite;text-shadow:0 0 30px #ff4f9a}
+@keyframes pulse{50%{transform:scale(1.12)}}
+.badge{display:inline-block;padding:8px 14px;border:1px solid #ffffff30;border-radius:99px;background:#ffffff10}
+h1{font-size:clamp(60px,11vw,140px);line-height:.9;margin:22px 0;background:linear-gradient(90deg,#fff,#ffadd2,#cbb8ff);-webkit-background-clip:text;color:transparent}
+.subtitle{font-size:clamp(18px,3vw,25px);line-height:1.6;color:#f8eaf8}
+section{max-width:1100px;margin:auto;padding:90px 20px}.section-title{text-align:center;font-size:36px;margin:0 0 10px}.section-sub{text-align:center;color:var(--muted);max-width:700px;margin:0 auto 35px;line-height:1.6}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}.card{padding:25px;border:1px solid #ffffff20;border-radius:25px;background:#ffffff0e;backdrop-filter:blur(12px);box-shadow:0 15px 45px #0003}.icon{font-size:35px}.card h3{margin:12px 0 7px}.card p{color:var(--muted);line-height:1.6}
+.letter{max-width:800px;margin:auto;padding:35px;border-radius:28px;background:linear-gradient(135deg,#ff4f9a22,#8b5cf622);border:1px solid #ffffff22;line-height:1.9;font-size:18px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}.photo{position:relative;overflow:hidden;border-radius:22px;border:1px solid #ffffff20;background:#ffffff0b;min-height:280px}.photo img{width:100%;height:100%;min-height:280px;object-fit:cover;display:block}.photo button{position:absolute;top:10px;right:10px;border:0;border-radius:50%;width:35px;height:35px;background:#000b;color:white;cursor:pointer}
+.add-box{text-align:center;padding:25px;border:2px dashed #ffffff30;border-radius:22px;margin-top:20px}.add-btn,.save-btn,.edit-btn{display:inline-block;padding:13px 20px;border-radius:99px;border:0;color:white;font-weight:bold;cursor:pointer;background:linear-gradient(90deg,var(--pink),var(--purple));margin:5px}
+input[type=file]{display:none}
+.editor{display:none;position:fixed;z-index:100;inset:0;background:#12081bee;backdrop-filter:blur(12px);overflow:auto;padding:80px 20px 30px}
+.editor.open{display:block}.editor-box{max-width:850px;margin:auto;background:#251033;border:1px solid #ffffff20;border-radius:25px;padding:25px;box-shadow:0 20px 70px #0008}
+.editor h2{margin-top:0}.field{margin:16px 0}.field label{display:block;font-weight:bold;margin-bottom:7px}.field input,.field textarea{width:100%;border:1px solid #ffffff25;background:#160a20;color:white;border-radius:12px;padding:12px;font:inherit}.field textarea{min-height:110px;resize:vertical}
+.editor-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.danger{background:#9f234f}.small{font-size:13px;color:#cdbed1}
+footer{text-align:center;padding:60px 20px;color:#d9c9dd}footer strong{color:#ff9ac7}
+@media(max-width:600px){nav{justify-content:flex-start;overflow:auto}.letter{padding:24px}}
+</style>
+</head>
+<body>
+
+<nav>
+<a href="#inicio">Início</a><a href="#palavras">Palavras</a><a href="#carta">Carta</a><a href="#fotos">Fotos</a>
+<button onclick="openEditor()">⚙️ Editar site</button>
+</nav>
+
+<header class="hero" id="inicio">
+<div class="hero-inner">
+<div class="heart">♥</div>
+<span class="badge" id="badge">Um cantinho feito especialmente para você</span>
+<h1 id="heroName">Beatriz</h1>
+<p class="subtitle" id="heroText">Entre tantas pessoas no mundo, meu coração encontrou um lugar que gosta de chamar de casa. E esse lugar é você. 💗</p>
+</div>
+</header>
+
+<section id="palavras">
+<h2 class="section-title" id="wordsTitle">Pequenas coisas que quero te lembrar</h2>
+<p class="section-sub" id="wordsSub">Porque às vezes uma frase simples diz aquilo que a gente sente e nem sempre consegue falar.</p>
+<div class="cards" id="cards"></div>
+</section>
+
+<section id="carta">
+<h2 class="section-title" id="letterTitle">Uma cartinha para você 💌</h2>
+<p class="section-sub">Você pode mudar tudo pelo botão <b>Editar site</b>.</p>
+<div class="letter" id="letter"></div>
+</section>
+
+<section id="fotos">
+<h2 class="section-title" id="photosTitle">Nossos momentos 📸</h2>
+<p class="section-sub" id="photosSub">Adicione quantas fotos quiser.</p>
+<div class="gallery" id="gallery"></div>
+<div class="add-box">
+<label class="add-btn" for="photoInput">＋ Adicionar fotos</label>
+<input id="photoInput" type="file" accept="image/*" multiple>
+<p class="small">As fotos adicionadas ficam salvas neste navegador.</p>
+</div>
+</section>
+
+<footer>Feito com carinho para <strong id="footerName">Beatriz</strong> 💗</footer>
+
+<div class="editor" id="editor">
+<div class="editor-box">
+<h2>✏️ Editar meu site</h2>
+<p class="small">Altere os textos abaixo e clique em <b>Salvar alterações</b>. As mudanças ficam salvas neste navegador.</p>
+<div id="fields"></div>
+<div class="editor-actions">
+<button class="save-btn" onclick="saveEdits()">💾 Salvar alterações</button>
+<button class="edit-btn" onclick="closeEditor()">Fechar</button>
+<button class="edit-btn danger" onclick="resetTexts()">Restaurar textos originais</button>
+</div>
+</div>
+</div>
+
+<script>
+const defaults={
+heroName:"Beatriz",
+badge:"Um cantinho feito especialmente para você",
+heroText:"Entre tantas pessoas no mundo, meu coração encontrou um lugar que gosta de chamar de casa. E esse lugar é você. 💗",
+wordsTitle:"Pequenas coisas que quero te lembrar",
+wordsSub:"Porque às vezes uma frase simples diz aquilo que a gente sente e nem sempre consegue falar.",
+letterTitle:"Uma cartinha para você 💌",
+photosTitle:"Nossos momentos 📸",
+photosSub:"Adicione quantas fotos quiser.",
+card1Title:"Você é especial",card1Text:"Não por ser perfeita, mas por ser exatamente a pessoa que é.",
+card2Title:"Meu detalhe favorito",card2Text:"Até as pequenas coisas em você conseguem deixar meus dias melhores.",
+card3Title:"Meu lugar seguro",card3Text:"Tem uma paz diferente quando estou perto de você.",
+card4Title:"Eu escolheria você",card4Text:"Em qualquer versão da nossa história, eu ainda gostaria de te encontrar.",
+card5Title:"Você me faz sorrir",card5Text:"Às vezes sem nem perceber. E talvez seja justamente isso que torna tudo tão bonito.",
+card6Title:"Mesmo nos dias difíceis",card6Text:"Quero continuar lembrando que nós dois somos mais importantes do que um dia ruim.",
+letterText:"<p>Meu amor,</p><p>Eu queria conseguir colocar em palavras tudo o que sinto por você, mas algumas coisas parecem grandes demais para caber em uma frase.</p><p>Então fica aqui uma lembrança simples: eu gosto de você, gosto da nossa história e gosto dos momentos que a gente constrói juntos.</p><p>Espero que, quando você abrir esse site, consiga sentir pelo menos um pouquinho do carinho que coloquei em cada detalhe.</p><p>Com carinho,<br><strong>alguém que te ama muito. 💗</strong></p>"
+};
+
+let texts=JSON.parse(localStorage.getItem("beatrizTexts")||"null")||defaults;
+const icons=["🌷","✨","🫶","💜","🥹","🌙"];
+
+function render(){
+document.getElementById("pageTitle").textContent="Para "+texts.heroName+" 💗";
+document.getElementById("heroName").textContent=texts.heroName;
+document.getElementById("footerName").textContent=texts.heroName;
+for(const id of ["badge","heroText","wordsTitle","wordsSub","letterTitle","photosTitle","photosSub"])document.getElementById(id).textContent=texts[id];
+document.getElementById("letter").innerHTML=texts.letterText;
+const cards=document.getElementById("cards");cards.innerHTML="";
+for(let i=1;i<=6;i++)cards.innerHTML+=`<article class="card"><div class="icon">${icons[i-1]}</div><h3>${esc(texts["card"+i+"Title"])}</h3><p>${esc(texts["card"+i+"Text"])}</p></article>`;
+renderPhotos();
+}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+
+function openEditor(){
+const fields=document.getElementById("fields");fields.innerHTML="";
+const names={heroName:"Nome dela",badge:"Frase pequena do topo",heroText:"Texto principal do topo",wordsTitle:"Título dos mini textos",wordsSub:"Descrição dos mini textos",letterTitle:"Título da carta",photosTitle:"Título das fotos",photosSub:"Descrição das fotos",letterText:"Carta completa",card1Title:"Mini texto 1 - título",card1Text:"Mini texto 1",card2Title:"Mini texto 2 - título",card2Text:"Mini texto 2",card3Title:"Mini texto 3 - título",card3Text:"Mini texto 3",card4Title:"Mini texto 4 - título",card4Text:"Mini texto 4",card5Title:"Mini texto 5 - título",card5Text:"Mini texto 5",card6Title:"Mini texto 6 - título",card6Text:"Mini texto 6"};
+Object.keys(defaults).forEach(k=>{
+const div=document.createElement("div");div.className="field";
+const label=document.createElement("label");label.textContent=names[k]||k;div.appendChild(label);
+const el=k==="letterText"||k.endsWith("Text")?document.createElement("textarea"):document.createElement("input");
+el.id="edit_"+k;el.value=texts[k];div.appendChild(el);fields.appendChild(div);
+});
+document.getElementById("editor").classList.add("open");
+}
+function closeEditor(){document.getElementById("editor").classList.remove("open")}
+function saveEdits(){
+Object.keys(defaults).forEach(k=>{texts[k]=document.getElementById("edit_"+k).value});
+localStorage.setItem("beatrizTexts",JSON.stringify(texts));render();closeEditor();alert("Alterações salvas 💗");
+}
+function resetTexts(){
+if(confirm("Restaurar todos os textos originais?")){texts={...defaults};localStorage.setItem("beatrizTexts",JSON.stringify(texts));render();openEditor();}
+}
+
+const defaultPhotos=["fotos/foto-1.jpg","fotos/foto-2.jpg"];
+function getPhotos(){try{return JSON.parse(localStorage.getItem("beatrizPhotos")||"[]")}catch(e){return[]}}
+function savePhotos(a){localStorage.setItem("beatrizPhotos",JSON.stringify(a))}
+function renderPhotos(){
+const g=document.getElementById("gallery");g.innerHTML="";
+defaultPhotos.forEach(src=>addPhotoElement(g,src,false));
+getPhotos().forEach((src,i)=>addPhotoElement(g,src,true,i));
+}
+function addPhotoElement(g,src,removable,index){
+const box=document.createElement("div");box.className="photo";
+const img=document.createElement("img");img.src=src;img.alt="Momento especial";box.appendChild(img);
+if(removable){const b=document.createElement("button");b.textContent="×";b.onclick=()=>{let a=getPhotos();a.splice(index,1);savePhotos(a);renderPhotos()};box.appendChild(b)}
+g.appendChild(box);
+}
+document.getElementById("photoInput").addEventListener("change",async e=>{
+const files=[...e.target.files];const imgs=await Promise.all(files.map(f=>new Promise(res=>{const r=new FileReader();r.onload=()=>res(r.result);r.readAsDataURL(f)})));
+savePhotos([...getPhotos(),...imgs]);renderPhotos();e.target.value="";
+});
+render();
+</script>
+</body>
+</html>
